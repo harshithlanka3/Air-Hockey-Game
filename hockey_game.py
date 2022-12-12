@@ -161,7 +161,7 @@ while running:
         
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                print("SPACED")
+                print("You quit!")
                 running = False
             if event.key == pygame.K_p:
                 paused = True
@@ -204,9 +204,9 @@ while running:
         compdraw.speed = 1.5
         compdraw.angle = math.atan2(compdraw.y-random.randrange(300,390),random.randrange(99,150)-compdraw.x)
 
-    print(compdraw.x)
-    print(abs(puck.x-compdraw.x))
-    print(puck.x)
+    # print(compdraw.x)
+    # print(abs(puck.x-compdraw.x))
+    # print(puck.x)
 
     if not paused:
         compdraw.move()
@@ -221,17 +221,19 @@ while running:
     pygame.display.update() # make all the changes at the end of each iteration
 
     #msg_font = pygame.font.Font("Helvetica.ttf",74)
-    if p1_score == 7:
+    if p1_score == 3:
         print("Congratulations! You win.")
         end_text = font.render("Congratulations! You win.", True, (215, 0, 64))
         screen.blit(score,(540,280))
         pygame.display.flip()
+        running = False
         
-    elif opponent_score == 7:
+    elif opponent_score == 3:
         print("Too bad. Better luck next time.")
         end_text = font.render("Too bad. Better luck next time.", True, (215, 0, 64))
         screen.blit(score,(540,280))
         pygame.display.flip()
+        running = False
         
     
     
